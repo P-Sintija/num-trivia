@@ -1,18 +1,16 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UploadTriviaController;
+use App\Http\Controllers\TriviaController;
+use App\Http\Controllers\ProcessAnswerController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home.index');
+Route::post('/trivia', [UploadTriviaController::class, 'store'])
+    ->name('trivia.store');
+Route::get('/trivia', [TriviaController::class, 'index'])
+    ->name('trivia.index');
+Route::post('/trivia/processAnswer/{id}', [ProcessAnswerController::class, 'update'])
+    ->name('processAnswer.update');
