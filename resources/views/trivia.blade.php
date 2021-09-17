@@ -2,16 +2,19 @@
 
 @section('content')
 <div>
-    <h1>
+    <span class="multipoint-answer">
+        ...
+    </span>
+    <span class="question">
         {{ $question }}
-    </h1>
-    <form method="post" action="/trivia/processAnswer/{{ $id }}">
-        @csrf
-        @foreach($answers as $answer)
-        <button type="submit" value="{{ $answer->answer() }}" name="answer">
-            {{ $answer->answer() }}
-        </button>
-        @endforeach
-    </form>
+    </span>
 </div>
+<form method="post" action="/trivia/processAnswer/{{ $id }}">
+    @csrf
+    @foreach($answers as $answer)
+    <button type="submit" value="{{ $answer->answer() }}" name="answer">
+        {{ $answer->answer() }}
+    </button>
+    @endforeach
+</form>
 @endsection

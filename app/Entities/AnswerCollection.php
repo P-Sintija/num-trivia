@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Requests;
+namespace App\Entities;
 
 class AnswerCollection
 {

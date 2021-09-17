@@ -7,10 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Number trivia</title>
 
+    @yield('stylesheet')
+    <link rel="stylesheet" href="css/trivia.css">
+    <link rel="stylesheet" href="css/all.css">
+
 </head>
 
 <body>
-    @yield('content')
+    <div class="wrapper">
+        <div class="container">
+            @yield('content')
+        </div>
+    </div>
 </body>
 
 </html>

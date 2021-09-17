@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use App\Models\UserAnswer;
-use App\Requests\Answer;
+use App\Entities\Answer;
 
 class ProcessAnswerService
 {

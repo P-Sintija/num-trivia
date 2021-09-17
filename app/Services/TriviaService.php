@@ -4,8 +4,8 @@ namespace App\Services;
 
 use App\Models\Trivia;
 use App\Models\UserAnswer;
-use App\Requests\Answer;
-use App\Requests\AnswerCollection;
+use App\Entities\Answer;
+use App\Entities\AnswerCollection;
 use App\Services\GenerateAnswersService;
 
 class TriviaService

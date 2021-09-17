@@ -7,9 +7,9 @@ use App\Models\Trivia;
 class TriviaApiRepository implements TriviaRepository
 {
     const API_BASE_URL = 'http://numbersapi.com/';
-    const QUESTION_COUNT = 5;
-    const MIN_NUMBER = 1;
-    const MAX_NUMBER = 10;
+    const QUESTION_COUNT = 20;
+    const MIN_NUMBER = 5;
+    const MAX_NUMBER = 100;
     private string $triviaNumbers;
 
     public function store(): void

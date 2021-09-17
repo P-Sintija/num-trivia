@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
-use App\Requests\Answer;
-use App\Requests\AnswerCollection;
+use App\Entities\Answer;
+use App\Entities\AnswerCollection;
 
 class GenerateAnswersService
 {

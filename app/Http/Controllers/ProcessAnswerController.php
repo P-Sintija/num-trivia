@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Requests\Answer;
+use App\Entities\Answer;
 use App\Services\ProcessAnswerService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

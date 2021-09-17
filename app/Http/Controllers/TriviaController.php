@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entities\Question;
 use App\Services\TriviaService;
 use App\Services\ProcessVictoryService;
 use Illuminate\Contracts\View\View;
@@ -28,7 +29,8 @@ class TriviaController extends Controller
 
                 return view('victory', [
                     'correctAnsweredCount' => $correctAnsweredCount,
-                    'lastQuestion' => $lastQuestion
+                    'lastQuestion' => (new Question($lastQuestion))->question(),
+                    'lastCorrectAnsver' => $lastQuestion->answer
                 ]);
             } else {
 
@@ -43,7 +45,7 @@ class TriviaController extends Controller
 
         return view('trivia', [
             'id' => $userAnswer->id,
-            'question' => $question->question,
+            'question' => (new Question($question))->question(),
             'answers' => $answers
         ]);
     }
