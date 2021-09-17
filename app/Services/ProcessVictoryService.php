@@ -28,9 +28,14 @@ class ProcessVictoryService
         return false;
     }
 
-    public function correctAnswerCount(): int
+    public function correctAnswerCountLost(): int
     {
         return count(UserAnswer::where('answer_user', '!=', 0)->get()) - 1;
+    }
+
+    public function correctAnswerCountWon(): int
+    {
+        return count(UserAnswer::where('answer_user', '!=', 0)->get());
     }
 
     public function lastQuestionAnswered(): Trivia

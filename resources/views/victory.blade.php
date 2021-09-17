@@ -2,7 +2,7 @@
 
 @section('content')
 
-@if (isset($correctAnsweredCount))
+@if (isset($lastCorrectAnsver))
 <div class="message-container">
     <span class="message">
         You Lost!
@@ -30,6 +30,12 @@
         You won!
     </span>
     <i class="far fa-smile"></i>
+</div>
+<div class="correct-answers">
+    <i class="fas fa-check"></i>
+    <span>
+        {{ $correctAnsweredCount }}
+    </span>
 </div>
 @endif
 <form method="get" action="/">

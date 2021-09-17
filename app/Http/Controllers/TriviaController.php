@@ -24,17 +24,18 @@ class TriviaController extends Controller
     {
         if (!$this->processVictoryService->continueGame()) {
             if ($this->processVictoryService->lost()) {
-                $correctAnsweredCount = $this->processVictoryService->correctAnswerCount();
+                $correctAnsweredCount = $this->processVictoryService->correctAnswerCountLost();
                 $lastQuestion = $this->processVictoryService->lastQuestionAnswered();
-
                 return view('victory', [
                     'correctAnsweredCount' => $correctAnsweredCount,
                     'lastQuestion' => (new Question($lastQuestion))->question(),
                     'lastCorrectAnsver' => $lastQuestion->answer
                 ]);
             } else {
-
-                return view('victory');
+                $correctAnsweredCount = $this->processVictoryService->correctAnswerCountWon();
+                return view('victory', [
+                    'correctAnsweredCount' => $correctAnsweredCount
+                ]);
             }
         }
 
@@ -42,7 +43,6 @@ class TriviaController extends Controller
         $question = $this->triviaService->question($userAnswer);
         $answers = $this->triviaService->answers($userAnswer)->answers();
         shuffle($answers);
-
         return view('trivia', [
             'id' => $userAnswer->id,
             'question' => (new Question($question))->question(),
